@@ -1,0 +1,10 @@
+#sring:
+#  data:
+#    mongodb:
+#      host: 10.139.4.139
+#      port: 27017
+#      database: jwtdemo
+spring:
+  data:
+    mongodb:
+      uri: mongodb://192.168.226.128:27017/jwtdemo

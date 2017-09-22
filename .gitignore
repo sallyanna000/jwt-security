@@ -1,0 +1,10 @@
+# ignore build files
+build/
+
+# ignore out files
+out/
+
+# ignore idea files
+.idea/
+.gradle/
+#src/test/resources/

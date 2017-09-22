@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+    <!--<include resource="defaults.xml" />-->
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n" />
+    <!--<property name="root.level.console" value="OFF" />-->
+
+    <!--控制台日志输出格式定义-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>UTF-8</charset>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!--文件日志格式定义-->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>/home/logs/jwtlog.log</File>
+        <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./logs/dpilog.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>20MB</totalSizeCap>
+        </rollingPolicy>-->
+        <!--each file should be at most 20MB, keep 30 days worth of history, but at most 2GB-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>/home/logs/jwtlog.%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <maxFileSize>20MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>2GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+
+        <logger name="jdbc.connection" level="OFF" />
+        <logger name="org.apache" level="ERROR" />
+        <logger name="org.springframework" level="ERROR"/>
+        <logger name="com.dx" level="DEBUG" />
+        <root level="INFO">
+            <!--<appender-ref ref="STDOUT" />-->
+            <appender-ref ref="FILE" />
+        </root>
+
+
+
+
+</configuration>
+
+

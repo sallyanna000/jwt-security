@@ -1,0 +1,17 @@
+spring:
+  # 数据库设置
+  datasource:
+    url: jdbc:mysql://10.139.6.28:3306/test?useSSL=false
+    username: dx
+    password: dx@TBD123
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+#debug: true
+#  jpa:
+#                          properties:
+#                            hibernate:
+#                              hbm2ddl:
+#                                auto: update
