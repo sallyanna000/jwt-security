@@ -1,9 +1,9 @@
 spring:
   # 数据库设置
   datasource:
-    url: jdbc:mysql://10.139.6.28:3306/test?useSSL=false
-    username: dx
-    password: dx@TBD123
+    url: jdbc:mysql://192.168.0.1:3306/test?useSSL=false
+    username: user
+    password: pwd
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     hibernate:
